@@ -7,7 +7,7 @@ dotenv.config()
 const connect = async ()=>{
 try {
     await mongoose.connect(process.env.MONGO);
-    console.log("Conectado a mongo!!")
+    console.log("¡¡¡Conectado a mongo!!")
   } catch (error) {
     throw error 
   }
@@ -18,6 +18,10 @@ mongoose.connection.on("disconnected", ()=>{
 })
 mongoose.connection.on("connected", ()=>{
     console.log("mongo connected ")
+})
+
+app.get("/users", (req,res)=>{
+  res.send("Hola primer respuesta")
 })
 
 app.listen(8800, ()=>{
